@@ -284,6 +284,7 @@ journalctl -fu lyra.service
 ```
 With ctrl + c you can exit listening.
 
+### For Mainnet replace all "testnet" words with "mainnet", and ports from 4503 to 5503 and from 4505 to 5505.
 
 ### Donations kindly apreciated:
 ##### LYR: LCjM28ov1MciT8cd5TmSAiMgiLhSgXhYPUB6mWuqK3ZD8S5axLCtyihxkh5YZFpgbWML7WrC1d7sLLtaCbmT7YqX24ipZo
