@@ -253,18 +253,34 @@ vi /etc/systemd/system/lyra.service
 29): A new file will be created and opened, append:
 ```
 [Unit]
-Description=LYRA node Testnet
-After=network-online.target
+Description=Lyra node daemon
 
 [Service]
-User=lyra
-Type=simple
-RestartSec=5
 WorkingDirectory=/home/lyra/lyra/noded
+ExecStart=/usr/bin/dotnet /home/lyra/lyra/noded/lyra.noded.dll
 Restart=always
-ExecStart=/usr/bin/dotnet lyra.noded.dll
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=lyra-noded
+User=lyra
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+# optional mongodb credential if not specified in config*.json
+# Environment=LYRA_ApplicationConfiguration__LyraNode__Lyra__Database__DBConnect=mongodb://lexuser:alongpassword@127.0.0.1/lyra
+
+# for mainnet
+# Environment=LYRA_NETWORK=mainnet
+# Environment=ASPNETCORE_URLS=http://*:5505;https://*:5504
+# Environment=ASPNETCORE_HTTPS_PORT=5504
+
+# for testnet
 Environment=LYRA_NETWORK=testnet
-Environment=TERM=xterm
+Environment=ASPNETCORE_URLS=http://*:4505;https://*:4504
+Environment=ASPNETCORE_HTTPS_PORT=4504
+
+# if use Engix front end
+# Environment=ASPNETCORE_HTTPS_PORT=443
 
 [Install]
 WantedBy=multi-user.target
