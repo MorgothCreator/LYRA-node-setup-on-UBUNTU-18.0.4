@@ -9,9 +9,9 @@ current=$(monodis --assembly /home/lyra/lyra/noded/Lyra.Data.dll | grep -Po 'Ver
 if [ $release != $current ]; then
 echo "Not the same"
 wget https://github.com/LYRA-Block-Lattice/Lyra-Core/releases/download/${release}/lyra.permissionless-${release}.tar.bz2
-cp lyra/noded/config.testnet.json /home/lyra/
+cp lyra/noded/config.mainnet.json /home/lyra/
 tar -xjvf lyra.permissionless-${release}.tar.bz2
-cp config.testnet.json lyra/noded/
+cp config.mainnet.json lyra/noded/
 wget -O lyra.service https://raw.githubusercontent.com/MorgothCreator/LYRA-node-setup-on-UBUNTU-18.0.4/main/lyra-linux-mainnet.service -P /etc/systemd/system/
 systemctl daemon-reload
 systemctl restart lyra.service
