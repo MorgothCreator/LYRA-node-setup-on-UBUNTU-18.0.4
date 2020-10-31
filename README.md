@@ -302,5 +302,53 @@ With ctrl + c you can exit listening.
 
 ### For Mainnet replace all "testnet" words with "mainnet", and ports from 4503 to 5503 and from 4505 to 5505.
 
+
+# Automatic update:
+
+#### This section assumes that you done all the steps from above and everithing is running OK.
+
+The script assumes that lyranoded run under lyra user account.
+
+Login as root and install mono-utils:
+
+```
+apt install mono-utils
+```
+
+Copy the update script for testnet or for mainnet to the root home directory:
+
+```
+cd ~/
+wget https://raw.githubusercontent.com/MorgothCreator/LYRA-node-setup-on-UBUNTU-18.0.4/main/lyra-mainnet-noded-update.sh
+```
+
+for mainnet.
+
+```
+cd ~/
+wget https://raw.githubusercontent.com/MorgothCreator/LYRA-node-setup-on-UBUNTU-18.0.4/main/lyra-testnet-noded-update.sh
+```
+
+for testnet.
+
+call crontab setup:
+
+```
+crontab -e
+```
+
+Choose the desired editor if you not already choosen before, and at the end of the file paste:
+
+```
+0 */6 * * * sleep $(( RANDOM \% 21600 ));  /root/lyra-mainnet-noded-update.sh >> /root/lyra-update.log 2>&1
+```
+
+This line will call the update script every six hours with a random delay of 0 to 21600 seconds.
+
+This random delay will avoid the situation where all nodes will be shutdown for update and screw up the network.
+
+#### The update script will check on the official lyra repository for an update to appear, if an update is shown will download it, will save the config file to the home directory of lyra user, will decompress the archive, will restore the config file, will download the service file and install it in case the content is needed to be updated and restart the lyra noded service.
+
+
 ### Donations kindly apreciated:
 ##### LYR: LCjM28ov1MciT8cd5TmSAiMgiLhSgXhYPUB6mWuqK3ZD8S5axLCtyihxkh5YZFpgbWML7WrC1d7sLLtaCbmT7YqX24ipZo
