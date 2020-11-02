@@ -5,15 +5,22 @@ releases=$(git ls-remote --tags "https://github.com/LYRA-Block-Lattice/Lyra-Core
 releases_array=($(echo $releases | tr "\n" "\n"))
 len=${#releases_array[@]}
 release=${releases_array[len-1]}
+minor=($(echo $release | tr "." "\n"))
 current=$(monodis --assembly /home/lyra/lyra/noded/Lyra.Data.dll | grep -Po 'Version:\s\K.*')
 if [ $release != $current ]; then
-echo "Not the same"
-wget https://github.com/LYRA-Block-Lattice/Lyra-Core/releases/download/${release}/lyra.permissionless-${release}.tar.bz2
-cp lyra/noded/config.mainnet.json /home/lyra/
-tar -xjvf lyra.permissionless-${release}.tar.bz2
-cp config.mainnet.json lyra/noded/
-wget -O lyra.service https://raw.githubusercontent.com/MorgothCreator/LYRA-node-setup-on-UBUNTU-18.0.4/main/lyra-linux-mainnet.service -P /etc/systemd/system/
-systemctl daemon-reload
-systemctl restart lyra.service
+        if [ ${minor[3]} != "0" ]; then
+                echo "Minor is: "${minor[3]}
+                echo "Not mainnet"
+                exit
+        fi
+        echo "Not the same"
+        wget https://github.com/LYRA-Block-Lattice/Lyra-Core/releases/download/${release}/lyra.permissionless-${release}.tar.bz2
+        cp lyra/noded/config.mainnet.json /home/lyra/
+        tar -xjvf lyra.permissionless-${release}.tar.bz2
+        cp config.mainnet.json lyra/noded/
+        wget -O lyra.service https://raw.githubusercontent.com/MorgothCreator/LYRA-node-setup-on-UBUNTU-18.0.4/main/lyra-linux-mainnet.service -P /etc/systemd/system/
+        systemctl daemon-reload
+        systemctl restart lyra.service
 fi
 cd ~/
+
