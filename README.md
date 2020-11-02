@@ -303,7 +303,7 @@ With ctrl + c you can exit listening.
 ### For Mainnet replace all "testnet" words with "mainnet", and ports from 4503 to 5503 and from 4505 to 5505.
 
 
-# Automatic update:
+# Automatic update: ( Do not use the mainnet one, does not make the difference between prereleases and releases, an you will end up on mainnet with a prerelease, is here only for storage purpose, this is until I will make it to differentiate releases from prereleases ).
 
 #### This section assumes that you done all the steps from above and everithing is running OK.
 
