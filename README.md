@@ -303,9 +303,15 @@ With ctrl + c you can exit listening.
 ### For Mainnet replace all "testnet" words with "mainnet", and ports from 4503 to 5503 and from 4505 to 5505.
 
 
-# Automatic update: ( Do not use the mainnet one, does not make the difference between prereleases and releases, an you will end up on mainnet with a prerelease, is here only for storage purpose, this is until I will make it to differentiate releases from prereleases ).
+# Automatic update:
 
 #### This section assumes that you done all the steps from above and everithing is running OK.
+
+## Now the mainnet script differentiate the released for mainnet from prereleased for testnet checking the minor to be '0', if minor is '0' is a mainnet release, if different is a testnet prerelease.
+
+Both scripts are self protected against empty response by git aplication due to internet glitches or no internet, it will receive an empty response or a response else than expected, will try to downoload from github a release without version string concatenated to the name, that does not exist on github, the script will end up with error that will make no change on the running OS, will try the update procedure in the next six hour + a random delay.
+
+In both scripts, mainnet and testnet the service will write in root home a log with what is the output of the script.
 
 The script assumes that lyranoded run under lyra user account.
 
