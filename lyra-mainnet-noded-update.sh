@@ -19,6 +19,10 @@ if [ $release != $current ]; then
         tar -xjvf lyra.permissionless-${release}.tar.bz2
         cp config.mainnet.json lyra/noded/
         wget -O lyra.service https://raw.githubusercontent.com/MorgothCreator/LYRA-node-setup-on-UBUNTU-18.0.4/main/lyra-linux-mainnet.service -P /etc/systemd/system/
+        ufw allow 5503
+        ufw allow 5504
+        ufw allow 5505
+        ufw reload
         systemctl daemon-reload
         systemctl restart lyra.service
 fi
