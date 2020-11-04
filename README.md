@@ -353,7 +353,9 @@ This line will call the update script every six hours with a random delay of 0 t
 
 This random delay will avoid the situation where all nodes will be shutdown for update and screw up the network.
 
-#### The update script will check on the official lyra repository for an update to appear, if an update is shown will download it, will save the config file to the home directory of lyra user, will decompress the archive, will restore the config file, will download the service file and install it in case the content is needed to be updated and restart the lyra noded service.
+#### The update script will check on the official lyra repository for an update to appear, if an update is shown will download it, will save the config file to the home directory of lyra user, will decompress the archive, will restore the config file and restart the lyra noded service.
+
+The ".service" files from this repository are only for reference, they will be updated after the official LYRA node is updated, if necessary, so this script's will update only the node, if service files need to be changed, they need to be changed manually by the node operator.
 
 
 ### Donations kindly apreciated:
