@@ -12,12 +12,9 @@ wget https://github.com/LYRA-Block-Lattice/Lyra-Core/releases/download/${release
 cp lyra/noded/config.testnet.json /home/lyra/
 tar -xjvf lyra.permissionless-${release}.tar.bz2
 cp config.testnet.json lyra/noded/
-wget -O /etc/systemd/system/lyra.service https://raw.githubusercontent.com/MorgothCreator/LYRA-node-setup-on-UBUNTU-18.0.4/main/lyra-linux-testnet.service
         ufw allow 5403
         ufw allow 5404
         ufw allow 5405
-        ufw reload
-systemctl daemon-reload
 systemctl restart lyra.service
 fi
 cd ~/
