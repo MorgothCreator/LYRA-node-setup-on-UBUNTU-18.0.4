@@ -120,7 +120,7 @@ sudo apt-get update; \
 ```
 ufw start
 ufw allow 4503
-ufw allow 4505
+ufw allow 4504
 ```
 14): Switch to the newly created account on ubuntu ("lyra"):
 ```
@@ -300,7 +300,7 @@ journalctl -fu lyra.service
 ```
 With ctrl + c you can exit listening.
 
-### For Mainnet replace all "testnet" words with "mainnet", and ports from 4503 to 5503 and from 4505 to 5505.
+### For Mainnet replace all "testnet" words with "mainnet", and ports from 4503 to 5503 and from 4504 to 5504.
 
 
 # Automatic update:
