@@ -360,3 +360,5 @@ The ".service" files from this repository are only for reference, they will be u
 
 ### Donations kindly apreciated:
 ##### LYR: LCjM28ov1MciT8cd5TmSAiMgiLhSgXhYPUB6mWuqK3ZD8S5axLCtyihxkh5YZFpgbWML7WrC1d7sLLtaCbmT7YqX24ipZo
+
+Or simply create an account on LATOKEN using this invite link: https://latoken.com/invite?r=76dbqa8j and both we will earn 50$ credit to cover 25% of the trading fee.
