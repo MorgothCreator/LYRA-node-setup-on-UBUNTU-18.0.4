@@ -118,6 +118,7 @@ sudo apt-get update; \
 
 13): Write:
 ```
+ufw enable
 ufw start
 ufw allow 4503
 ufw allow 4504
