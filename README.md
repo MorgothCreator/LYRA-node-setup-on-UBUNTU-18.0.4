@@ -211,23 +211,7 @@ export LYRA_NETWORK=testnet
 dotnet dev-certs https --clean
 dotnet dev-certs https
 ```
-23): Enter the lyra directory:
-```
-cd ~/lyra/noded
-```
-24): Start lyra node:
-```
-dotnet lyra.noded.dll
-```
-* Wait for synchronisation to finish.
-* Press ctrl + c to close the node.
-
-25): Go to home directory of lira user.
-```
-cd ~/
-```
-
-26): Make variable persistent editing bashrc file:
+23): Make variable persistent editing bashrc file:
 ```
 vi .bashrc
 ```
@@ -241,6 +225,22 @@ Write:
 Will write the changes and exit.
 
 ### Run LYRA node as service:
+
+24): Enter the lyra directory:
+```
+cd ~/lyra/noded
+```
+25): Start lyra node:
+```
+dotnet lyra.noded.dll
+```
+* Wait for synchronisation to finish.
+* Press ctrl + c to close the node.
+
+26): Go to home directory of lira user.
+```
+cd ~/
+```
 
 27): Go back to root account in ubuntu:
 ```
